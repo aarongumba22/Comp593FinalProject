@@ -1,0 +1,3 @@
+2022-03-14
+-Copied script from d2l and put it in github repo
+-setup up Vs debugging and ignore Vs code git ignore
