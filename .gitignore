@@ -120,6 +120,14 @@ ENV/
 env.bak/
 venv.bak/
 
+
+#ignore visual studio
+*.code-workspace
+
+#vscode
+.svcode
+
+
 # Spyder project settings
 .spyderproject
 .spyproject
