@@ -16,11 +16,13 @@ Parameters:
 History:
   Date        Author    Description
   2022-03-11  J.Dalby   Initial creation
+  2022-04-07  A.Gumba   Finish get_apod_info and get_apod_date
 """
 from sys import argv, exit
 from datetime import datetime, date
 from hashlib import sha256
 from os import path
+import requests
 
 def main():
 
@@ -62,6 +64,7 @@ def get_image_dir_path():
 
     :returns: Path of directory in which images are saved locally
     """
+    
     if len(argv) >= 2:
         dir_path = argv[1]
         if path.isdir(dir_path):
@@ -80,7 +83,8 @@ def get_apod_date():
     Aborts script execution if date format is invalid.
 
     :returns: APOD date as a string in 'YYYY-MM-DD' format
-    """    
+    """  
+    arg = get_apod_info(date) 
     if len(argv) >= 3:
         # Date parameter has been provided, so get it
         apod_date = argv[2]
@@ -108,6 +112,7 @@ def get_image_path(image_url, dir_path):
     :returns: Path at which image is saved locally
     """
     return "TODO"
+    
 
 def get_apod_info(date):
     """
@@ -117,7 +122,22 @@ def get_apod_info(date):
     :param date: APOD date formatted as YYYY-MM-DD
     :returns: Dictionary of APOD info
     """    
-    return {"todo" : "TODO"}
+    #return {"todo" : "TODO"}
+    print("Getting  APOD info......")
+    key = 'YwiFf9Lh266Z4fLYb61gkwT2vBdOxx6jHZXJ7NDh'
+    response = requests.get('https://api.nasa.gov/planetary/apod?api_key=' + key)
+
+    if response.status_code == 200:
+        today = date.today()
+        print('Response:',response.status_code, '🎉🎉🎉', '\n')
+        print("Success")
+        
+        
+        return response.json(),today
+        
+    else:
+        print('Uh Oh, Unsucessful',response.status_code)
+        return 
 
 def print_apod_info(image_url, image_path, image_size, image_sha256):
     """
