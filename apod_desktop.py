@@ -17,12 +17,15 @@ History:
   Date        Author    Description
   2022-03-11  J.Dalby   Initial creation
   2022-04-07  A.Gumba   Finish get_apod_info and get_apod_date
+  2022-04-10  A.Gumba   Finish create_image_path
 """
 from sys import argv, exit
 from datetime import datetime, date
 from hashlib import sha256
 from os import path
-import requests
+from requests
+
+import sqlite3
 
 def main():
 
@@ -178,8 +181,10 @@ def create_image_db(db_path):
     :param db_path: Path of .db file
     :returns: None
     """
-    return #TODO
-
+    path = 'C:\\Github\\Comp593FinalProject\\NASApics.db'
+    db_path =sqlite3.connect(path)
+    #return #TODO
+    return db_path
 def add_image_to_db(db_path, image_path, image_size, image_sha256):
     """
     Adds a specified APOD image to the DB.
@@ -212,4 +217,4 @@ def set_desktop_background_image(image_path):
     """
     return #TODO
 
-main()
+#main()

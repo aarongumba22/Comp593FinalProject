@@ -5,3 +5,6 @@
 2022-04-07
 -get my key from NASA api
 -read libraries for current date module format
+
+2022-04-10
+- create a data base https://stackoverflow.com/questions/49984698/connecting-to-sqlite3-database if not exist.
