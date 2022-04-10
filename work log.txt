@@ -8,3 +8,12 @@
 
 2022-04-10
 - create a data base https://stackoverflow.com/questions/49984698/connecting-to-sqlite3-database if not exist.
+https://towardsdatascience.com/how-to-download-an-image-using-python-38a75cfa21c
+https://towardsdatascience.com/how-to-download-an-image-using-python-38a75cfa21c understanding this code as my baseline 
+to download photo
+
+-figuring how to download image
+managed to download the photo but it was corrupted but his code seems to work
+fiddle with my code for 1hours and figured out had to convert it to json first then another 1 hour to make another
+request
+https://stackoverflow.com/questions/2665866/what-does-wb-mean-in-this-code-using-python understanding wb open file

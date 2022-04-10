@@ -17,15 +17,17 @@ History:
   Date        Author    Description
   2022-03-11  J.Dalby   Initial creation
   2022-04-07  A.Gumba   Finish get_apod_info and get_apod_date
-  2022-04-10  A.Gumba   Finish create_image_path
+  2022-04-10  A.Gumba   Finish create_image_db and download_apod_image
 """
 from sys import argv, exit
 from datetime import datetime, date
 from hashlib import sha256
+import shutil # for copying th file
 from os import path
-from requests
+import os.path
 
-import sqlite3
+import sqlite3# for database use
+from pip._vendor import requests # for requesting http connection
 
 def main():
 
@@ -161,7 +163,37 @@ def download_apod_image(image_url):
     :param image_url: URL of image
     :returns: Response message that contains image data
     """
-    return "TODO"
+    #return "TODO"
+    image_url= 'https://api.nasa.gov/planetary/apod?api_key=YwiFf9Lh266Z4fLYb61gkwT2vBdOxx6jHZXJ7NDh'
+    image_data = requests.get(image_url) #connection to url
+    respo = image_data.json()#convert the data to get the url
+    path= respo['url'] #saves the url here
+    req=requests.get(path,stream = True) #stream to guranteed no interruption gathering the content without it its corrupted and 0KB
+    filename = path.split("/")[-1] #to get the name of the file
+
+
+
+    if image_data.status_code == 200:
+        
+        print('Response:',image_data.status_code, '🎉🎉🎉', '\n')
+        print("Success connection")
+        req.raw.decode_content = True
+        save= 'C:\\Github\\Comp593FinalProject\\NASApics'#where it will resides
+        complete = os.path.join(save,filename)
+        
+    
+        with open(complete,'wb') as f: #open file in write mode and binary
+            shutil.copyfileobj(req.raw, f)
+        f.close() #close the file
+        
+        print("Successfully downloaded image")
+        print (filename,"is file name")
+
+            
+            
+            
+    else:
+        print('failed to download photo',image_data.status_code)
 
 def save_image_file(image_msg, image_path):
     """
