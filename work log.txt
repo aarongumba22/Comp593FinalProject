@@ -8,7 +8,7 @@
 
 2022-04-10
 - create a data base https://stackoverflow.com/questions/49984698/connecting-to-sqlite3-database if not exist.
-https://towardsdatascience.com/how-to-download-an-image-using-python-38a75cfa21c
+
 https://towardsdatascience.com/how-to-download-an-image-using-python-38a75cfa21c understanding this code as my baseline 
 to download photo
 
@@ -17,3 +17,21 @@ managed to download the photo but it was corrupted but his code seems to work
 fiddle with my code for 1hours and figured out had to convert it to json first then another 1 hour to make another
 request
 https://stackoverflow.com/questions/2665866/what-does-wb-mean-in-this-code-using-python understanding wb open file
+
+2022-04-11
+-made a mistake put the download and save in the same function
+-gonna figure this out
+-https://pythontect.com/python-sha256-calculation-tutorial/#:~:text=SHA256%20can%20be%20calculated%20to,the%20SHA265%20in%20hexadecimal%20format.
+this for getting the sha
+-this getting the size https://www.geeksforgeeks.org/how-to-get-file-size-in-python/
+-https://www.pythontutorial.net/python-basics/python-check-if-file-exists/ this website shows how to check an existeing file for sqlite
+-https://note.nkmk.me/en/python-function-return-multiple-values/#:~:text=In%20Python%2C%20you%20can%20return,the%20return%20%2C%20separated%20by%20commas.
+this taguht me how to access single value from a multiple returns
+-https://www.youtube.com/watch?v=nW3_qzEWCr0 found this guy to demonstrate an awesome library that sets the background
+
+2022-04-13
+WHAT A MESS, glueing my clustered mess functions to the main function.
+realized this only sets the current nasa pics of the day on the day when this script is ran basically passed events aren obtain
+https://wilsjame.github.io/how-to-nasa/ figure out this how to configure the api with 
+
+- somehow it does what it need to do but it duplicates the database when the same photo applied but somehow it does not duplicate the photo dowload.
