@@ -35,3 +35,6 @@ realized this only sets the current nasa pics of the day on the day when this sc
 https://wilsjame.github.io/how-to-nasa/ figure out this how to configure the api with 
 
 - somehow it does what it need to do but it duplicates the database when the same photo applied but somehow it does not duplicate the photo dowload.
+
+2022-4-25
+-got help from Prof Jeremy, the problem was the image_sha is a string being compared it a tuple, had to convert it to tuple frst then do the if statement

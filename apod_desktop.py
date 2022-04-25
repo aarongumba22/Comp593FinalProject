@@ -314,8 +314,8 @@ def image_already_in_db(db_path, image_sha256):
     c =connect.cursor()
     c.execute("SELECT image_sha256 FROM 'NASA Pictures'")
     all_sha =c.fetchall()#will get the single sha compare
-    
-    if image_sha256 in all_sha:
+    #converts it to tuple to compare
+    if (image_sha256,)in all_sha:
         
         return True
     
